@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@aarc-dev/deposit-widget": "^0.0.5",
+    "@aarc-dev/deposit-widget": "^0.0.63",
     "@aarc-xyz/deposit-widget": "^0.0.6",
     "next": "14.1.0",
     "react": "^18",
