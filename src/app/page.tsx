@@ -8,33 +8,32 @@ import Link from "next/link";
 const wagmiConfig = createConfig({
   chains: [polygon],
   transports: {
-    [polygon.id]: http("https://mainnet.example.com"),
+    [polygon.id]: http("https://rpc-mainnet.maticvigil.com/"),
   },
 });
+const config = {
+  destination: {
+    chainId: 137,
+    tokenAddress: "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+    walletAddress: "0x1Cb30cb181D7854F91c2410BD037E6F42130e860",
+    tokenSymbol: "USDC",
+    tokenDecimals: 6,
+  },
+  appearance: {
+    logoUrl: "https://raw.githubusercontent.com/megabyte0x/aarc-widget-tutorial/main/src/app/aarc.png",
+    themeColor: "#1677FF",
+  },
+  apiKeys: {
+    transak: "your-transak-api-key",
+    aarcSDK: process.env.AARC_API_KEY,
+  },
+};
 function App() {
   const open = useAarc();
   const queryClient = new QueryClient();
-  const config = {
-    destination: {
-      chainId: 137,
-      tokenAddress: "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
-      walletAddress: "0x1Cb30cb181D7854F91c2410BD037E6F42130e860",
-      tokenSymbol: "USDC",
-      tokenDecimals: 6,
-    },
-    appearance: {
-      logoUrl: "",
-      themeColor: "#1677FF",
-    },
-    apiKeys: {
-      transak: "your-transak-api-key",
-      aarcSDK: "3f88f673-5b2b-4832-83f1-4a883bab5409",
-    },
-  };
+  
   return (
     <div className="App min-h-screen flex items-center justify-center">
-      {/* <h1>Create React App Template for Aarc Deposit widget</h1> */}
-
       <WagmiProvider config={wagmiConfig}>
         <QueryClientProvider client={queryClient}>
           <AarcProvider config={config}>
@@ -59,7 +58,7 @@ function App() {
                 </div>
                 <div className="">
                   <a
-                    href="https://docs.aarc.xyz"
+                    href="https://megabyte0x.xyz/posts/aarc-widget-tutorial"
                     className="no-underline"
                     target="_blank"
                     rel="noopener noreferrer"
