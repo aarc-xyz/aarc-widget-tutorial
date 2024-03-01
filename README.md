@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Aarc FDK Widget Tutorial
 
-## Getting Started
+[Aarc FDK Widget](https://docs.aarc.xyz/developer-docs/widgets/fund-deposit-kit) is a React component that provides all the necessary options to onboard your users seamlessly without sending them to any other page.
 
-First, run the development server:
+This tutorial will guide you through integrating the AARC Deposit Widget into your web application. 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Check out the live demo here: https://aarc-deposit-widget.megabyte0x.xyz
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Check out the complete tutorial here: https://megabyte0x.xyz/posts/aarc-widget-tutorial
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+# Run the application 
 
-## Learn More
+1. Clone the repository
 
-To learn more about Next.js, take a look at the following resources:
+    ```bash
+    git clone
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Install the dependencies
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+    ```bash
+    npm install
+    ```
 
-## Deploy on Vercel
+3. Set the environment variables
+    - Create a `.env.local` file in the root directory
+        ```env
+        AARC_API_KEY=YOUR_API_KEY
+        ```
+    -  Learn how to get your **AARC API KEY** from [here](https://docs.aarc.xyz/developer-docs/getting-started/quick-start-guide/get-the-api-key)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Run the application
+    
+    ```bash
+    npm run dev
+    ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+---
+
+If you have any doubts or wanna discuss something:
+- Join [*Aarc Developer Circle*](https://t.me/+3uFZXrW0ohcxMjdl) 
+- DM [*megabyte*](https://x.com/megabyte0x)
