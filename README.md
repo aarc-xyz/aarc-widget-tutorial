@@ -5,8 +5,6 @@
 This tutorial will guide you through integrating the AARC Deposit Widget into your web application. 
 
 
-Check out the live demo here: https://aarc-deposit-widget.megabyte0x.xyz
-
 Check out the complete tutorial here: https://megabyte0x.xyz/posts/aarc-widget-tutorial
 
 # Run the application 
