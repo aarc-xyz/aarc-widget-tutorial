@@ -11,6 +11,8 @@ const wagmiConfig = createConfig({
     [polygon.id]: http("https://rpc-mainnet.maticvigil.com/"),
   },
 });
+const AARC_API_KEY: string= process.env.NEXT_PUBLIC_AARC_API_KEY? process.env.NEXT_PUBLIC_AARC_API_KEY: "";
+
 const config = {
   destination: {
     chainId: 137,
@@ -25,7 +27,7 @@ const config = {
   },
   apiKeys: {
     transak: "your-transak-api-key",
-    aarcSDK: process.env.AARC_API_KEY,
+    aarcSDK: AARC_API_KEY
   },
 };
 function App() {

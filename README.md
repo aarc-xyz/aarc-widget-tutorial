@@ -4,6 +4,9 @@
 
 This tutorial will guide you through integrating the AARC Deposit Widget into your web application. 
 
+Check out the live demo here: 
+
+[![Deployed SS](./src/app/deployed_ss.png)](https://aarc-deposit-widget.megabyte0x.xyz/)
 
 Check out the complete tutorial here: https://megabyte0x.xyz/posts/aarc-widget-tutorial
 
