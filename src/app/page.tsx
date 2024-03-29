@@ -1,19 +1,34 @@
 "use client";
 import { useAarc, AarcProvider } from "@aarc-dev/deposit-widget";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "@aarc-dev/deposit-widget/dist/style.css";
+// For Coinbase Exchange
+import Coinbase from '@aarc-xyz/deposit-widget-coinbase'
+// For Transak On-ramp services
+import Transak from '@aarc-xyz/deposit-widget-transak'
+
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { WagmiProvider, createConfig, http } from "wagmi";
 import { polygon } from "wagmi/chains";
 import Link from "next/link";
+import { message } from "antd";
+
 const wagmiConfig = createConfig({
   chains: [polygon],
   transports: {
     [polygon.id]: http("https://rpc-mainnet.maticvigil.com/"),
   },
 });
-const AARC_API_KEY: string= process.env.NEXT_PUBLIC_AARC_API_KEY? process.env.NEXT_PUBLIC_AARC_API_KEY: "";
+const AARC_API_KEY: string = process.env.NEXT_PUBLIC_AARC_API_KEY ? process.env.NEXT_PUBLIC_AARC_API_KEY : "";
 
 const config = {
+  modules: {
+    Transak: function (props: any) {
+      return <Transak {...props} />
+    },
+    Coinbase: function (props: any) {
+      return <Coinbase {...props} />
+    },
+  },
   destination: {
     chainId: 137,
     tokenAddress: "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
@@ -29,11 +44,31 @@ const config = {
     transak: "your-transak-api-key",
     aarcSDK: AARC_API_KEY
   },
+  onTransactionSuccess: (data: any) => {
+    // Logic after successful transaction
+    console.log(data)
+    message.success('Transaction successful')
+  },
+  onTransactionError: (data: any) => {
+    // Logic if a transaction error occurs
+    console.log(data)
+    message.error('Transaction failed')
+  },
+  onWidgetClose: () => {
+    // Logic on Widget Closing 
+    console.log('Widget closed')
+  },
+  onWidgetOpen: () => {
+    // Logic on Widget Opening 
+    console.log('Widget opened')
+  }
 };
+
+
 function App() {
   const open = useAarc();
   const queryClient = new QueryClient();
-  
+
   return (
     <div className="App min-h-screen flex items-center justify-center">
       <WagmiProvider config={wagmiConfig}>
